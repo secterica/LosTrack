@@ -12,9 +12,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MenuAdapter extends BaseAdapter {
-    ArrayList<MyItems> arrayList;
+    ArrayList<Items> arrayList;
     Context context;
-    public MenuAdapter(Context context, ArrayList<MyItems> arrayList) {
+    public MenuAdapter(Context context, ArrayList<Items> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
     }
@@ -50,7 +50,7 @@ public class MenuAdapter extends BaseAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final MyItems myItems = arrayList.get(position);
+        final Items myItems = arrayList.get(position);
         if(convertView == null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView = layoutInflater.inflate(R.layout.example_of_menu_items, null);

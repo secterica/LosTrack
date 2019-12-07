@@ -18,7 +18,7 @@ public class AddNewItem extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
         getWindow().setLayout((int) (width*0.8),(int) (height*0.6));
-        Button button = findViewById(R.id.button2);
+        Button button = findViewById(R.id.addButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

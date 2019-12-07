@@ -26,12 +26,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginTop="9dp"
             android:background="@android:drawable/btn_default_small"
-            android:onClick="addNewItemButtonClicked"
             android:text="Button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,9 +1,9 @@
 package com.example.lostrack;
 
-class MyItems {
+class Items {
     String itemName;
     int itemImage;
-    MyItems(String itemName, int image) {
+    Items(String itemName, int image) {
         this.itemName = itemName;
         this.itemImage = image;
     }

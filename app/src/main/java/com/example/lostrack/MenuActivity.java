@@ -33,10 +33,10 @@ public class MenuActivity extends AppCompatActivity {
         });
         menuList.addFooterView(new ImageView(this));
         menuList.addHeaderView(new ImageView(this));
-        ArrayList<MyItems> menuArrayList = new ArrayList<>();
-        menuArrayList.add(new MyItems("Schedule", R.drawable.plus));
-        menuArrayList.add(new MyItems("MyItems", R.drawable.plus));
-        menuArrayList.add(new MyItems("CurrentItems", R.drawable.plus));
+        ArrayList<Items> menuArrayList = new ArrayList<>();
+        menuArrayList.add(new Items("Schedule", R.drawable.plus));
+        menuArrayList.add(new Items("MyItems", R.drawable.plus));
+        menuArrayList.add(new Items("CurrentItems", R.drawable.plus));
 
         MenuAdapter menuAdapter = new MenuAdapter(getBaseContext(), menuArrayList);
         menuList.setAdapter(menuAdapter);

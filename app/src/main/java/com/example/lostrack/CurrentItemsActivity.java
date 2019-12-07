@@ -24,13 +24,13 @@ public class CurrentItemsActivity extends Activity {
         setContentView(R.layout.current_items);
 
         currentItemsList = findViewById(R.id.ListOfCurrentItems);
-        arrayList.add(new MyItems("Keys", R.drawable.plus));
-        arrayList.add(new MyItems("Wallet", R.drawable.plus));
-        arrayList.add(new MyItems("Physics", R.drawable.plus));
-        arrayList.add(new MyItems("umovnyy vasyl", R.drawable.plus));
-        arrayList.add(new MyItems("Smartphone)", R.drawable.plus));
+        arrayList.add(new Items("Keys", R.drawable.plus));
+        arrayList.add(new Items("Wallet", R.drawable.plus));
+        arrayList.add(new Items("Physics", R.drawable.plus));
+        arrayList.add(new Items("umovnyy vasyl", R.drawable.plus));
+        arrayList.add(new Items("Smartphone)", R.drawable.plus));
         for (int i = 0; i < 90; i++){
-            arrayList.add(new MyItems("Maxx)", R.drawable.plus));
+            arrayList.add(new Items("Maxx)", R.drawable.plus));
         }
         currentItemsList.addFooterView(new ImageView(this));
         currentItemsList.addHeaderView(new ImageView(this));
@@ -40,8 +40,8 @@ public class CurrentItemsActivity extends Activity {
         }
         currentItemsAdapter.notifyDataSetChanged();
         currentItemsAdapter.notifyDataSetInvalidated();
-        arrayList.add(new MyItems("Maxx)", R.drawable.plus));
-        arrayList.add(new MyItems("Maxx)", R.drawable.plus));
+        arrayList.add(new Items("Maxx)", R.drawable.plus));
+        arrayList.add(new Items("Maxx)", R.drawable.plus));
         currentItemsAdapter.notifyDataSetChanged();
         currentItemsAdapter.notifyDataSetInvalidated();
 
@@ -55,8 +55,8 @@ public class CurrentItemsActivity extends Activity {
         });
     }
     ListView currentItemsList;
-    ArrayList<MyItems> arrayList = new ArrayList<>();
-    MyItemsAdapter currentItemsAdapter = new MyItemsAdapter(CurrentItemsActivity.this, arrayList);
+    ArrayList<Items> arrayList = new ArrayList<>();
+    ItemsAdapter currentItemsAdapter = new ItemsAdapter(CurrentItemsActivity.this, arrayList);
 
 
     public void addNewItem(View view) {
@@ -76,7 +76,7 @@ public class CurrentItemsActivity extends Activity {
 
         Log.i("Name", nameOfItem.getText().toString());
 //        textView.setText(nameOfItem.getText().toString());
-        arrayList.add(new MyItems(nameOfItem.getText().toString() + "lol", R.drawable.forwardbutton));
+        arrayList.add(new Items(nameOfItem.getText().toString() + "lol", R.drawable.forwardbutton));
         currentItemsAdapter.notifyDataSetChanged();
         currentItemsAdapter.notifyDataSetInvalidated();
     }

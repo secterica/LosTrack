@@ -6,21 +6,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import java.util.ArrayList;
 
 //implements ListAdapter
-class MyItemsAdapter extends BaseAdapter {
-    private ArrayList<MyItems> arrayList;
+class ItemsAdapter extends BaseAdapter {
+    private ArrayList<Items> arrayList;
     private Context context;
-    MyItemsAdapter(Context context, ArrayList<MyItems> arrayList) {
+    private AlertDialog alertDialog;
+    ItemsAdapter(Context context, ArrayList<Items> arrayList) {
 //        super(context,R.layout.example_of_list_of_items, arrayList);
         this.arrayList=arrayList;
         this.context=context;
     }
-    @Override
+
+
+
+        @Override
     public boolean areAllItemsEnabled() {
         return false;
     }
@@ -43,7 +50,7 @@ class MyItemsAdapter extends BaseAdapter {
         return arrayList.size();
     }
     @Override
-    public MyItems getItem(int position) {
+    public Items getItem(int position) {
         return arrayList.get(position);
     }
     @Override
@@ -58,7 +65,7 @@ class MyItemsAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final MyItems myItems = arrayList.get(position);
+        final Items myItems = arrayList.get(position);
         final ViewHolder viewHolder;
         View view;
 
@@ -76,11 +83,29 @@ class MyItemsAdapter extends BaseAdapter {
             viewHolder.forwardButtonImage.setOnClickListener(v -> {
 
             });
-            viewHolder.trashCanImage.setOnClickListener(v -> {
+            viewHolder.trashCanImage.setOnClickListener(v ->{
 //                Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
+//                arrayList.remove(position);
+//                notifyDataSetChanged();
+//                notifyDataSetInvalidated();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(view.getContext());
+
+                dialog.setView(R.layout.delete_item);
+                alertDialog = dialog.create();
+                alertDialog.show();
+                Button yesButton =  alertDialog.findViewById(R.id.yesButton);
+                assert yesButton != null;
+                yesButton.setOnClickListener(yesView ->{
                     arrayList.remove(position);
                     notifyDataSetChanged();
                     notifyDataSetInvalidated();
+                    alertDialog.cancel();
+                });
+                Button noButton = alertDialog.findViewById(R.id.cancelButton);
+                assert noButton != null;
+                noButton.setOnClickListener((View noView) ->{
+                    alertDialog.cancel();
+                });
             });
             view.setTag(viewHolder);
         }else  {
